@@ -35,6 +35,7 @@ class GildedRose(object):
                     if item.quality < 50:
                         item.quality = item.quality + 1'''
     
+    # Update sell_in and quality by item wise
     def update(self):
         for item in self.items:
             if item.name == "Sulfuras, Hand of Ragnaros":
@@ -46,6 +47,7 @@ class GildedRose(object):
             if item.sell_in < 0:
                 self.update_expire(item)
 
+    # Update Quality Of Item
     def update_quality(self, item):
         if item.name == "Aged Brie":
             self.increment_quality(item)
@@ -54,6 +56,7 @@ class GildedRose(object):
         else:
             self.decrement_quality(item)
 
+    # Update Expire Of Item
     def update_expire(self, item):
         if item.name == "Aged Brie":
             self.increment_quality(item)
@@ -62,12 +65,15 @@ class GildedRose(object):
         else:
             self.decrement_quality(item)
 
+    # Increment The Quality Of Item
     def increment_quality(self, item, amount=1):
         item.quality = min(50, item.quality + amount)
 
+    # Decrement The Quality Of Item
     def decrement_quality(self, item, amount=1):
         item.quality = max(0, item.quality - amount)
 
+    # Update The Quality Of Backstage Passes Item
     def update_backstage_passes_item(self, item):
         self.increment_quality(item)
         if item.sell_in < 11:
