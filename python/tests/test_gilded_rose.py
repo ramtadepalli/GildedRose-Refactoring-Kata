@@ -12,10 +12,18 @@ from gilded_rose import Item, GildedRose
 class GildedRoseTest(unittest.TestCase):
     def test_foo(self):
         print("This Is Sample Unit Test Method")
-        items = [Item("foo", 0, 0)]
+        items = [Item("Aged Brie", 10, 30)]
         gilded_rose = GildedRose(items)
-        gilded_rose.update_quality()
-        self.assertEqual("foo", items[0].name)
+        gilded_rose.update()
+        self.assertEqual("Aged Brie", items[0].name)
+    
+    def test_backstage_pass_increases_quality(self):
+        print("This Is Sample Unit Test Case test_backstage_pass_increases_quality Method")
+        items = [Item("Backstage passes to a TAFKAL80ETC concert", 15, 30)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update()
+        self.assertEqual(31, items[0].quality)
+        self.assertEqual(14, items[0].sell_in)
         
 if __name__ == '__main__':
     unittest.main()
