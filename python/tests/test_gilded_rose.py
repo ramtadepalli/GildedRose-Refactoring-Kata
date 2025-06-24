@@ -26,7 +26,7 @@ class GildedRoseTest(unittest.TestCase):
         self.assertEqual(14, items[0].sell_in)
 
     def test_multiple_items(self):
-        print("This Is Sample Unit Test Case test_backstage_pass_increases_quality Method")
+        print("This Is Sample Unit Test Case Of Adding Multiple Items To List Method")
         items = [Item("Backstage passes to a TAFKAL80ETC concert", 15, 30),Item("Aged Brie", 20, 35),Item("Sulfuras, Hand of Ragnaros", 25, 40)]
         gilded_rose = GildedRose(items)
         gilded_rose.update()
